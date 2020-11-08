@@ -71,66 +71,6 @@
       </div>
     </li>
 
-    <!-- <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#design1-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('admin/images/menu_icons/08.png')}}"> <span class="menu-title">
-        Manage Kameez Back Designs</span><i class="menu-arrow"></i></a>
-      <div class="collapse" id="design1-pages">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.kameez_back') }}">Manage Design</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.kameez_back.create') }}">Add Design</a></li>
-          </ul>
-      </div>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#design2-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('admin/images/menu_icons/08.png')}}"> <span class="menu-title">
-        Manage Neck Front Designs</span><i class="menu-arrow"></i></a>
-      <div class="collapse" id="design2-pages">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.neck_front') }}">Manage Design</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.neck_front.create') }}">Add Design</a></li>
-          </ul>
-      </div>
-    </li>
-
-
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#design3-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('admin/images/menu_icons/08.png')}}"> <span class="menu-title">
-        Manage Neck Back Designs</span><i class="menu-arrow"></i></a>
-      <div class="collapse" id="design3-pages">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.neck_back') }}">Manage Design</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.neck_back.create') }}">Add Design</a></li>
-          </ul>
-      </div>
-    </li>
-
-
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#design4-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('admin/images/menu_icons/08.png')}}"> <span class="menu-title">
-        Manage Sleeves Designs</span><i class="menu-arrow"></i></a>
-      <div class="collapse" id="design4-pages">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.sleeves') }}">Manage Design</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.sleeves.create') }}">Add Design</a></li>
-          </ul>
-      </div>
-    </li>
-
-
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#design5-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="{{asset('admin/images/menu_icons/08.png')}}"> <span class="menu-title">
-        Manage Bottom Designs</span><i class="menu-arrow"></i></a>
-      <div class="collapse" id="design5-pages">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.bottom') }}">Manage Design</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{ route('admin.bottom.create') }}">Add Design</a></li>
-          </ul>
-      </div>
-    </li> -->
-
-
-
   </ul>
 </nav>
 <!-- partial -->

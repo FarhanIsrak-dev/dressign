@@ -7,25 +7,6 @@
 		$("#tobe-usedin-mobile").css("height", height + "px");
 		}
 		
-	$("#measurement-details").submit(function(e)
-		{
-		e.preventDefault();
-		
-		var formData = new FormData($("#measurement-details")[0]);
-		$.ajax({
-			url: window.location.origin + "/getChildImgs.php",
-			type: "POST",
-			data: formData,
-			contentType: false,
-			processData: false,
-			success: function(data)
-				{
-				$("[name='measurement-id']").val(data);
-				$(".close-measure").trigger("click");
-				}
-			});
-		});
-		
 	$("body").on("click",".list-group-close",function()
 		{
 		$(".list-group").hide();
@@ -66,24 +47,6 @@
 			pos += " .slider-container-show";
 			}
 		
-		$.ajax({
-			url: window.location.origin + "/getChildImgs.php",
-			type: "POST",
-			data: { clothId:$(this).find("img").attr("image_id"), clothType:$(this).find("img").attr("image-type") },
-			success: function(data)
-				{
-				$(".cloth-title-description .cloth-title-description-child").html($(data).filter(".get-custom-alltext").html());
-				if($(data).hasClass("get-custom-allsizes"))
-					{
-					$("#size-form-modal .modal-body-data").html($(data).filter(".get-custom-allsizes").html());
-					
-					var appendSizeHTML = '#size-form-modal';
-					$(appendSizeHTML).addClass("in");
-					$(appendSizeHTML).css("display","block");
-					}
-				}
-			});
-		
 		var styleThing = "";
 		if((extraLeft != "" || extraLeft != 0) && (extraTop == "" || extraTop == 0))
 			{
@@ -121,77 +84,6 @@
 			$(pos).append(newHtml)
 			}
 		});
-	$("body").on("click",".slider_selection .selection-item",function()
-		{
-		var imgType = $(this).find("img").attr("image-type");
-		var imgID = $(this).find("img").attr("image-id");
-		$(".list-group").show();
-		$.ajax({
-			url: window.location.origin + "/getChildImgs.php",
-			type: "POST",
-			data: { catType:imgType, catId:imgID },
-			success: function(data)
-				{
-				$(".slider-selected-child-action").html(data);
-				}
-			});
-		});
-	//$(".slider_selection .selection-item").eq(0).trigger("click");
-	
-	$("#get-all-products").click(function()
-		{
-		$(".list-group").show();
-		$.ajax({
-			url: window.location.origin + "/getChildImgs.php",
-			type: "POST",
-			data: { getProducts:"getProducts" },
-			success: function(data)
-				{
-				$(".slider-selected-child-action").html(data);
-				$(".slider-selected-child-action").show();
-				}
-			});
-		});
-	$("body").on("click","#add-product-tocart",function()
-		{
-		html2canvas($("#front-img"), {
-            onrendered: function(canvas) 
-				{
-                var getImageBase64 = Canvas2Image.convertToPNG(canvas);
-                
-				sendCartData($(getImageBase64).attr("src"));
-				}
-			});
-		});
-	$("body").on("click",".close-measure",function()
-		{
-		$(".mask-measurement").hide();
-		});
-	$("body").on("click","#measurements-popup",function()
-		{
-		$(".mask-measurement").show();
-		});
-	$("body").on("click",".product-selection-item",function()
-		{
-		var pId = $(this).find("img").attr("product-id");
-		$("[name='selected-product-id']").val(pId);
-		$.ajax({
-			url: window.location.origin + "/getChildImgs.php",
-			type: "POST",
-			data: { getProductItems:"getProductItems", productId:pId },
-			success: function(data)
-				{
-				if($("#left-side-otheroptions-inner").length > 0)
-					{
-					$("#left-side-otheroptions-inner").html(data);
-					}
-				else
-					{
-					$(".left-side-options.slider_selection").append("<div id='left-side-otheroptions-inner'>" + data + "</div>");
-					}
-				}
-			});
-		});
 	$("body").on("click","#show-right-ttols", function()
 		{
 		if($(".right.right-inthe-bottom").css("left") == "0px")
@@ -202,54 +94,6 @@
 			{
 			//$(".right.right-inthe-bottom").css("left","0px");
 			}
-		});
-		
-	$("body").on("click",".size-modal-close", function()
-		{
-		$("#size-form-modal").removeClass("in");
-		$("#size-form-modal").css("display","none");
-		});
-	$("body").on("click","#show-right-help", function()
-		{
-		if($(".cloth-title-description.right-inthe-bottom").css("left") == "0px")
-			{
-			$(".cloth-title-description.right-inthe-bottom").css("left","-240px");
-			}
-		else
-			{
-			$(".cloth-title-description.right-inthe-bottom").css("left","0px");
-			}
-		});
-	$("body").on("click",".tab.size-selection-item", function()
-		{
-		$(".selected-size-details").html($(this).html());
-		$(".size-modal-close").trigger("click");
-        
-        var formData = new FormData($("#customer-designed-options")[0]);
-        formData.append('stampClothId',$(this).find("img").attr("parent-image-id"));
-        formData.append('stampClothType',$(this).find("img").attr("parent-image-type"));
-        formData.append('getStampSpots',"");
-        
-        $.ajax({
-            url: window.location.origin + "/getChildImgs.php",
-            type: "POST",
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(data)
-                {
-				var getHtml = $(data).filter(".main-spot-single").html();
-				if(getHtml != "")
-					{
-					$("#front-img .slider-container-show .main-spot-single").addClass("main-spot-single-showhide");
-					$("#front-img .slider-container-show .main-spot-single").html(getHtml);
-					}
-				else
-					{
-					$("#front-img .slider-container-show .main-spot-single").removeClass("main-spot-single-showhide");
-					}
-				}
-            });
 		});
 	$("body").on("click",".spot-single", function(e)
 		{
@@ -271,24 +115,3 @@
 		$(".on-image-load").hide();
 		});
 	});
-	
-function sendCartData(getImageBase64)
-	{
-	var mId = $("[name='measurement-id']").val();
-	var formData = new FormData($("#customer-designed-options")[0]);
-	formData.append('addProductCart',"addProductCart");
-	formData.append('imgBase64',getImageBase64);
-	formData.append('addProductCart',"addProductCart");
-	
-	$.ajax({
-		url: window.location.origin + "/getChildImgs.php",
-		type: "POST",
-		data: formData,
-		contentType: false,
-		processData: false,
-		success: function(data)
-			{
-			window.location = data;
-			}
-		});
-	}

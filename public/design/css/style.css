@@ -40,9 +40,9 @@ p.tab-title {
     display: block;
     height: 95px;
 	}
-#front-img img {
-	/* margin-left: 22%; */
-}
+/* #front-img img {
+	 margin-left: 22%; 
+} */
 #custom-text 
 	{
     top: 10px !important;
@@ -88,18 +88,7 @@ p.tab-title {
 #section-prcing {
 	float: right;
 }
-.tab:hover {
-	border: 3px solid #d9524d;
-}
-.tab:after {
-	border: 3px solid #d9524d;
-}
-.tab:focus {
-	border: 3px solid #d9524d;
-}
-.tab:active {
-	border: 3px solid #d9524d;
-}
+
 p.price {
 	font-size: 30px;
 	color: #d9524d;
@@ -112,7 +101,7 @@ p.cart {
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: 170px;
+    width: 140px;
 }
 p.reset {
     font-size: 20px;
@@ -121,7 +110,7 @@ p.reset {
     border-radius: 5px;
     text-align: center;
     border: 1px solid #d9524d;
-    width: 170px;
+    width: 140px;
 }
 p.reset:hover {
 	font-size: 20px;
@@ -190,7 +179,7 @@ img.f1 {
     width: 350px;
     left: 175px;
     border: 1px solid #e3e3e3;
-    background-color: black;
+    background-color: white;
 	z-index: 22;
 	}
 .list-group-close 
@@ -300,7 +289,7 @@ span #custom-price{
     bottom: 0px;
     height: 512px;
     width: 231px;
-    margin-left: 755px;
+    margin-left: 555px;
 	}
 .canvas-image
 	{
@@ -360,7 +349,7 @@ li.list-group-item.selection-item:first-child
 	}
 ul.slider-selected-child-action 
 	{
-    width: 80%;
+    width: 100%;
     float: left;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -426,23 +415,7 @@ a.right-upper-class
     border-radius: 5px;
     height: 160px;
 	}
-.size-dialog .modal-heading 
-	{
-    border-bottom: 2px solid #565656;
-	}
-.modal-body-data 
-	{
-    margin-top: 10px;
-	}
-.size-modal-close
-	{
-	position: absolute;
-    top: 6px;
-    right: 10px;
-    font-size: 20px;
-    font-family: cursive;
-    cursor: pointer;
-	}
+
 .single-size-append
 	{
     position: absolute;

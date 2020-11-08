@@ -18,7 +18,7 @@
       <div class="col-md-6 mt-5">
         <div class="card">
           <div class="card-header">Admin Login</div>
-          @include('frontend.partials.messages')
+          @include('backend.partials.messages')
 
           <div class="card-body">
             <form method="POST" action="{{ route('admin.login.submit') }}">

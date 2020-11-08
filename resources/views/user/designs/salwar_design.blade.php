@@ -1,18 +1,15 @@
 @extends('user.designs.partials.master')
 @section('content')
+
 	<div class="container-fluid">
 		<div class="container-child">
-			<form id="customer-designed-options">
-				<input type="hidden" name="measurement-id" value="">
-				<input type="hidden" name="selected-product-id" value="">
-					<div class="tab">
-						<button class="tablinks" onmouseover="openCity(event, 'nothing')"><img src="{{asset('design/images/logo.jpg')}}" class="img-responsive" alt="brand-1" /></button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Bottom')">Bottom</button>
-					</div>
-					<div id="Bottom" class="tabcontent">
+			<div class="tab">
+				<div class="tablinks" onmouseover="openCity(event, 'nothing')"><img src="{{asset('design/images/logo.jpg')}}" class="img-responsive" alt="brand-1" /></div>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Bottom')">Bottom</button>
+			</div>
+				<div id="Bottom" class="tabcontent">
   					<div class="list-group-header">
 						Please Select One
-					
 					</div>
 					<ul class="slider-selected-child-action">
 						<li class="list-group-item selection-item">
@@ -156,9 +153,8 @@
 						<img src="{{asset('images/design/back-vector.png')}}" class="img-responsive" alt="brand-1">
 					</div>
 				</div>
-			</form>
 				<div class="right right-inthe-bottom" style="right: 60px;">
-					<p class="price"> 700&#2547; </p>
+					<p class="price"> 2000&#2547; </p>
 						<a href="{{route('index')}}" >
 								<p class="cart">
 								Home
@@ -173,14 +169,8 @@
 
 				</div>
 				<div class="clearfix"></div>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1 ><strong >Checkout</strong></h1>(Only fill up the parts you wamt to order)<br><br>
+<br><br><br><br><br>
+<h1 ><strong >Checkout</strong></h1><br><br>
 	<a href="{{route('help')}}" >
 		<p class="cart">
 			Help
@@ -190,6 +180,8 @@
 	<div class="row">
 	  <form role="form" action="{{ route('kamiz.store') }}" method="post" enctype="multipart/form-data">
 	  	{{ csrf_field() }}
+	<div class="container-fluid" style="border: 2px solid #ccc;">  
+		<h1 ><strong >Customer Info</strong></h1> 
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Email address</label>
             <input type="email" class="form-control" name="email" placeholder="Enter Email Address">
@@ -205,12 +197,52 @@
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Address</label>
             <input type="address" class="form-control" name="address" placeholder="Enter address">
-        </div>        
+        </div>
+	</div>
+	<div class="container-fluid"style="border: 2px solid #ccc;">  
+		<h1 ><strong >Design Info</strong></h1>
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Bottom</label>
             <input type="text" class="form-control" name="bottom" placeholder="Design Code">
         </div>
-        
+	</div>
+	<div class="container-fluid"style="border: 2px solid #ccc;">	
+		<h1 ><strong >Measure Info</strong></h1><p><h4>(Click on the labels for help in measuring)</h4></p>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#ankle">Ankle</label>
+            <input type="number" class="form-control" name="ankle" placeholder="In Inch" required="">
         </div>
-@endsection
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#bottomlen">Bottom Length</label>
+            <input type="number" class="form-control" name="bottomlength" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#inleg">Inside Leg</label>
+            <input type="number" class="form-control" name="insideleg" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#hips">Hips</label>
+            <input type="number" class="form-control" name="hip" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#midcalf">Mid Calf</label>
+            <input type="number" class="form-control" name="midcalf" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#midthigh">Mid Thigh</label>
+            <input type="number" class="form-control" name="midthigh" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#outleg">Outside Leg</label>
+            <input type="number" class="form-control" name="outleg" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#wrist">Wrist</label>
+            <input type="number" class="form-control" name="wrist" placeholder="In Inch" required="">
+        </div>
+	</div>
 
+@include('user.designs.design_modals')
+
+</div>
+@endsection

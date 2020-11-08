@@ -12,6 +12,16 @@ class DesignCheckoutController extends Controller
     {
     	$kamiz=DesignCheckout::all();
     	return view('user.designs.kamiz_design');
+	}
+	public function salwar_index()
+    {
+    	$kamiz=DesignCheckout::all();
+    	return view('user.designs.salwar_design');
+	}
+	public function salwar_kamiz_index()
+    {
+    	$kamiz=DesignCheckout::all();
+    	return view('user.designs.salwar_kamiz_design');
     }
 
     

@@ -1,31 +1,21 @@
 @extends('user.designs.partials.master')
 @section('content')
 
-<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="container-child">
-			<form id="customer-designed-options">
-				<input type="hidden" name="measurement-id" value="">
-				<input type="hidden" name="selected-product-id" value="">
-					<div class="tab">
-						<button class="tablinks" onmouseover="openCity(event, 'nothing')"><img src="{{asset('design/images/logo.jpg')}}" class="img-responsive" alt="brand-1" /></button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Kameez Front')">Kameez Front</button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Sleeves')">Sleeves</button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Neck Front')">Neck Front</button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Kameez Back')">Kameez Back</button>
-  						<button class="tablinks" onmouseover="openCity(event, 'Neck Back')">Neck Back</button>
-					</div>
-
+			<div class="tab">
+				<div class="tablinks" onmouseover="openCity(event, 'nothing')"><img src="{{asset('design/images/logo.jpg')}}" class="img-responsive" alt="brand-1" /></div>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Kameez Front')">Kameez Front</button>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Sleeves')">Sleeves</button>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Neck Front')">Neck Front</button>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Kameez Back')">Kameez Back</button>
+  				<button class="tablinks" onclick="this.disabled=true;" onmouseover="openCity(event, 'Neck Back')">Neck Back</button>
+			</div>
 				<div id="Kameez Front" class="tabcontent">
   					<div class="list-group-header">
 						Please Select One
 					</div>
 					<ul class="slider-selected-child-action">
-						<li class="list-group-item selection-item">
-							<div class="checkbox">
-							<img style="height: 80px;" src="{{asset('design/images/Kameez Front/f16.jpg')}}" image-type="shirt-front" image_id="1" extra-top="" extra-left="" style-position="front" class="img-responsive" alt="dics">
-							<p style="margin: 0px;">kf16</p>
-							</div>
-						</li>
 						<li class="list-group-item selection-item">
 							<div class="checkbox">
 							<img style="height: 80px;" src="{{asset('design/images/Kameez Front/f15.jpg')}}" image-type="shirt-front" image_id="1" extra-top="" extra-left="" style-position="front" class="img-responsive" alt="dics">
@@ -509,13 +499,9 @@
 						</li>
 					</ul>
 				</div>
-
-				</div>
-
 				<div id="Kameez Back" class="tabcontent">
   					<div class="list-group-header">
 						Please Select One
-					
 					</div>
 					<ul class="slider-selected-child-action">						
 						<li class="list-group-item selection-item">
@@ -754,12 +740,8 @@
 						<img src="{{asset('images/design/back-vector.png')}}" class="img-responsive" alt="brand-1">
 					</div>
 				</div>
-			</form>
-			
-
-
 				<div class="right right-inthe-bottom" style="right: 60px;">
-					<p class="price"> 1500&#2547; </p>
+					<p class="price"> 2000&#2547; </p>
 						<a href="{{route('index')}}" >
 								<p class="cart">
 								Home
@@ -773,16 +755,9 @@
 						</a>
 
 				</div>
-
 				<div class="clearfix"></div>
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1 ><strong >Checkout</strong></h1>(Only fill up the parts you wamt to order)<br><br>
+<br><br><br><br><br>
+<h1 ><strong >Checkout</strong></h1><br><br>
 	<a href="{{route('help')}}" >
 		<p class="cart">
 			Help
@@ -792,6 +767,8 @@
 	<div class="row">
 	  <form role="form" action="{{ route('kamiz.store') }}" method="post" enctype="multipart/form-data">
 	  	{{ csrf_field() }}
+	<div class="container-fluid" style="border: 2px solid #ccc;">  
+		<h1 ><strong >Customer Info</strong></h1> 
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Email address</label>
             <input type="email" class="form-control" name="email" placeholder="Enter Email Address">
@@ -808,6 +785,9 @@
             <label for="">Address</label>
             <input type="address" class="form-control" name="address" placeholder="Enter address">
         </div>
+	</div>
+	<div class="container-fluid"style="border: 2px solid #ccc;">  
+		<h1 ><strong >Design Info</strong></h1>
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Kameez Front</label>
             <input type="text" class="form-control" name="kf" placeholder="Design Code">
@@ -820,7 +800,6 @@
             <label for="">Neck Front</label>
             <input type="text" class="form-control" name="nf" placeholder="Design Code">
         </div>
-        
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Kameez Back</label>
             <input type="text" class="form-control" name="kb" placeholder="Design Code">
@@ -828,5 +807,90 @@
         <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
             <label for="">Neck Back</label>
             <input type="text" class="form-control" name="nb" placeholder="Design Code">
+		</div>
+	</div>
+	<div class="container-fluid"style="border: 2px solid #ccc;">	
+		<h1 ><strong >Measure Info</strong></h1><p><h4>(Click on the labels for help in measuring)</h4></p>
+        
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#armhole">Arm Hole</label>
+            <input type="number" class="form-control" name="armhole" placeholder="In Inch" required="">
         </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#aroundhead">Around Head</label>
+            <input type="number" class="form-control" name="aroundhead" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#kameezback">Full Body Kameez Length(Back)</label>
+            <input type="number" class="form-control" name="fbklb" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#backwid">Back Width</label>
+            <input type="number" class="form-control" name="backwidth" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#bust">Bust</label>
+            <input type="number" class="form-control" name="bust" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#elbow">Elbow</label>
+            <input type="number" class="form-control" name="elbow" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#frontchst">Front Chest</label>
+            <input type="number" class="form-control" name="frontchest" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#kameezfront">Full Body Kameez Length(Front)</label>
+            <input type="number" class="form-control" name="fbklf" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#shldrfront">Shoulder to Waist(Front)</label>
+            <input type="number" class="form-control" name="swf" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#sleeve">Full Sleeves</label>
+            <input type="number" class="form-control" name="fullsleeve" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#inleg">Inside Leg</label>
+            <input type="number" class="form-control" name="insideleg" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#hips">Hips</label>
+            <input type="number" class="form-control" name="hip" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#midthigh">Mid Thigh</label>
+            <input type="number" class="form-control" name="midthigh" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#ncktowst">Neck to Waist</label>
+            <input type="number" class="form-control" name="nw" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#shldr">Shoulder Size</label>
+            <input type="number" class="form-control" name="shoulder" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#shldrtoelb">Shoulder to Elbow</label>
+            <input type="number" class="form-control" name="se" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#wsttoheap">Waist to Heap</label>
+            <input type="number" class="form-control" name="wh" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#waist">Waist</label>
+            <input type="number" class="form-control" name="waist" placeholder="In Inch" required="">
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <label for="" data-toggle="modal" data-target="#wrist">Wrist</label>
+            <input type="number" class="form-control" name="wrist" placeholder="In Inch" required="">
+        </div>
+	</div>
+
+@include('user.designs.design_modals')
+
+</div>
 @endsection

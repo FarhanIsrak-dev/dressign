@@ -18,7 +18,7 @@ var Canvas2Image = function () {
 		};
 	}();
 
-	var downloadMime = 'image/octet-stream';
+	var downloadMime = 'images/octet-stream';
 
 	function scaleCanvas (canvas, width, height) {
 		var w = canvas.width,
@@ -84,32 +84,13 @@ var Canvas2Image = function () {
 		return 'data:' + type + ';base64,' + strData;
 	}
 
-
-	/**
-	 * create bitmap image
-	 * 按照规则生成图片响应头和响应体
-	 */
 	var genBitmapImage = function (oData) {
 
-		//
-		// BITMAPFILEHEADER: http://msdn.microsoft.com/en-us/library/windows/desktop/dd183374(v=vs.85).aspx
-		// BITMAPINFOHEADER: http://msdn.microsoft.com/en-us/library/dd183376.aspx
-		//
 
 		var biWidth  = oData.width;
 		var biHeight	= oData.height;
 		var biSizeImage = biWidth * biHeight * 3;
-		var bfSize  = biSizeImage + 54; // total header size = 54 bytes
-
-		//
-		//  typedef struct tagBITMAPFILEHEADER {
-		//  	WORD bfType;
-		//  	DWORD bfSize;
-		//  	WORD bfReserved1;
-		//  	WORD bfReserved2;
-		//  	DWORD bfOffBits;
-		//  } BITMAPFILEHEADER;
-		//
+		var bfSize  = biSizeImage + 54; 
 		var BITMAPFILEHEADER = [
 			// WORD bfType -- The file type signature; must be "BM"
 			0x42, 0x4D,
@@ -122,22 +103,6 @@ var Canvas2Image = function () {
 			// DWORD bfOffBits -- The offset, in bytes, from the beginning of the BITMAPFILEHEADER structure to the bitmap bits.
 			54, 0, 0, 0
 		];
-
-		//
-		//  typedef struct tagBITMAPINFOHEADER {
-		//  	DWORD biSize;
-		//  	LONG  biWidth;
-		//  	LONG  biHeight;
-		//  	WORD  biPlanes;
-		//  	WORD  biBitCount;
-		//  	DWORD biCompression;
-		//  	DWORD biSizeImage;
-		//  	LONG  biXPelsPerMeter;
-		//  	LONG  biYPelsPerMeter;
-		//  	DWORD biClrUsed;
-		//  	DWORD biClrImportant;
-		//  } BITMAPINFOHEADER, *PBITMAPINFOHEADER;
-		//
 		var BITMAPINFOHEADER = [
 			// DWORD biSize -- The number of bytes required by the structure
 			40, 0, 0, 0,
